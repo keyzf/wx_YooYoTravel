@@ -1,0 +1,83 @@
+<view class="container">
+    <!--adver-->
+   <scroll-view scroll-y="true">
+        <view wx:if="{{advers.length>0 && seasonItems.length>0}}">
+
+      <view class="topAdver">
+           <swiper class="adver_swiper" indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+         <block wx:for="{{advers}}" wx:key="*this">
+              <swiper-item>
+                 <image wx:if="{{item.file_rsurl}}" class="adver_image" src="{{item.file_rsurl}}" mode="scaleToFill">
+                 </image>
+                 <image wx:else class="adver_image" src="{{localImagesUrl}}/none_sy@2x.png" mode="scaleToFill">
+                 </image>
+               </swiper-item>
+         </block>
+     </swiper>
+    </view>
+
+    <view style="height:10px;background: lightgrey;"></view>
+
+    <!--sixTheme-->
+    <navigator url="https://www.yooyo.com/">
+         <view class="sixTheme">
+     <block wx:for="{{sixItems}}" wx:key="*this">
+         <view class="themeItem {{index%2==0?  'leftLine':''}} {{ (index%4==0||index%4==1)? 'bottomLine':''}}" bindtap="tapSixItemClick" data-idx="{{index}}">
+           <image src="{{item.file_rsurl}}" mode="scaleToFill" ></image>
+           <view class="themeTitle">
+            <text style="font-size: 35rpx;">{{item.content}}</text>
+            <text style="font-size: 25rpx; color: lightgray;">{{item.describe}}</text>
+           </view>
+        </view>
+
+
+     </block>
+    </view>
+   </navigator>
+
+
+   <!--smartToursit-->
+   <view class="smartToursitContainer" bindtap="toSmartTourist">
+      <image src="{{localImagesUrl}}/img_home_dz@2x.png"></image>
+   </view>
+    
+
+    <view style="height:10px;background: lightgrey;"></view>
+    <!--season-->
+    <view class="seasonContainer">
+       <view class="seasonHeader">
+          <image src="{{localImagesUrl}}/ico_ji@2x.png"></image>
+          <text>当季主题</text>
+       </view>
+
+
+       <block wx:for="{{seasonItems}}" wx:key="*this">
+          <view class="seasonItem">
+               <image src="{{item.pic_rsurl}}" class="seasonImage">
+               </image>
+                <view class="seasonTitle">
+                     <text style="font-size: 38rpx; color: white;">{{item.title}}</text>
+                     <view class="dotLine"></view>
+                     <text style="font-size: 25rpx; color: white;">{{item.keywords}}</text>
+                 </view>
+                
+          </view>
+       </block>
+    </view>
+
+
+
+ </view>
+
+   <view wx:else></view>
+
+ </scroll-view>
+
+
+
+</view>
+
+
+
+

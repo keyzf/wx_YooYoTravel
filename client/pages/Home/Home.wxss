@@ -1,0 +1,142 @@
+.container{
+    background: #fff;
+    padding: 0;
+    display: flex;
+    margin: 0;
+    /*font-size: 100px;*/
+}
+.topAdver{
+    /*background: blue;*/
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+    padding:0;
+}
+.adver_swiper{
+    width: 100%;
+    height: 450rpx;
+    margin: 0;
+    padding: 0;
+  
+
+}
+.adver_image{
+    width: 100%;  
+}
+.sixTheme{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+     width: 100%;
+     flex-wrap: wrap;
+     background: #fff;
+     padding: 25rpx;
+     /*background: red;*/
+     margin:0
+     
+}
+.sixTheme image{
+    width: 44px;
+    height: 44px;
+}
+
+
+.themeItem{
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    width: 49%;
+    padding-top: 25rpx;
+    
+   
+
+
+    /*background: blue;*/
+}
+
+.bottomLine{
+    border-bottom:1rpx solid #ddd;
+}
+.leftLine{
+     border-right: 1rpx solid #ddd;
+
+}
+.themeTitle{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.seasonContainer{
+    /*background: red;*/
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+.seasonHeader{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 80rpx;
+    font-size: 33rpx;
+    color: limegreen;
+    /*background: red;*/
+
+
+}
+.seasonHeader image{
+    width: 50rpx;
+    height: 50rpx;
+}
+.seasonHeader text{
+    margin: 15rpx;
+}
+.seasonItem{
+    width: 100%;
+    position: relative;
+    
+    
+
+}
+
+.seasonImage{
+    width: 100%;
+    padding: 20rpx 20rpx 0rpx 20rpx;
+    box-sizing: border-box;
+}
+
+.seasonTitle{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform:translate(-50%,-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+
+}
+
+.dotLine{
+    width:200rpx;
+    height:2rpx;
+    background: white;
+    margin: 8px;
+    
+}
+
+.smartToursitContainer{
+    width: 100%;
+    /*height: auto;*/
+    
+
+}
+
+.smartToursitContainer image{
+    width: 100%;
+    height: 180px;
+   
+
+}
