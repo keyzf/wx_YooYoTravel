@@ -1,0 +1,45 @@
+<!--pages/Profile/login.wxml-->
+<view class="login-form">
+<form catchsubmit="formSubmit" catchreset="formReset">
+  <view class="inputwrap">
+    <view class="inputBox scode">
+      <input name="mobile" class="j-inputtext" placeholder="手机号码" bindinput="setMobile" 
+      type="number" maxlength="11"/>
+    </view>
+  </view>
+
+  <view class="inputwrap">
+    <view class="inputBox scode">
+        <input name="vCode" class="j-inputtext" placeholder="验证码" maxlength="4" bindinput="setVCode" />
+        <view class="getbox">
+            <view class="getimage">
+                <image class="verification-image" wx:if="{{loadQrCode}}" src="{{QrCodeUrl}}" bindtap="reloadVerificationImage"></image>
+                <block wx:else>
+                  <text class="verification-text" bindtap="reloadVerificationImage">点击刷新</text>
+                </block>
+            </view>
+        </view>
+    </view>
+  </view>
+
+  <view class="inputwrap">
+    <view class="inputBox scode">
+        <input name="smsCode" type="number" class="j-inputtext" placeholder="短信验证码" maxlength="6" />
+        <view class="getbox">
+            <view class="getcode">
+                 <text wx:if="{{isShow}}" bindtap="getCode">获取验证码</text>
+                 <block wx:else>
+                  <text>{{lastTime}}秒</text>
+                 </block>
+            </view>
+        </view>
+    </view>
+  </view>
+
+  <input name="sign" value="{{signValue}}" hidden/> 
+
+<button class="btn-login" formType="submit">立即登录</button>
+  
+  
+</form>
+</view>

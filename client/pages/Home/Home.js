@@ -8,6 +8,7 @@ Page({
     advers:[],
     sixItems:[],
     seasonItems:[],
+    products:[],
     indicatorDots: true,
     autoplay: true,
     interval: 3000,
@@ -22,13 +23,14 @@ Page({
     })
   },
   onLoad: function () {
-    console.log('onLoad');
+    // console.log('onLoad');
 
-this.test();
+    this.test();
 
     var that = this;
-    var adverUrl = app.globalData.urlBase+ "?app_key=yooyo_weekend&method=emall.adverts.list&app_id=2&ccodes=index_top_carousel%2Cindex_center_six%2Csearch_key_words&city=San%20Francisc&come_from=2&format=json&from=iOS&partner_id=100&timestamp=1493185433671&version=5";
-    var mainSeasonUrl = app.globalData.urlBase +  "?app_key=yooyo_weekend&method=emall.content.list&app_id=2&city=San%20Francisc&format=json&from=iOS&partner_id=100&page_no=1&version=5&column_id=5710000&timestamp=1493189081378&come_from=2";
+    const adverUrl = app.globalData.urlBase+ "?app_key=yooyo_weekend&method=emall.adverts.list&app_id=2&ccodes=index_top_carousel%2Cindex_center_six%2Csearch_key_words&city=San%20Francisc&come_from=2&format=json&from=iOS&partner_id=100&timestamp=1493185433671&version=5";
+    const mainSeasonUrl = app.globalData.urlBase +  "?app_key=yooyo_weekend&method=emall.content.list&app_id=2&city=San%20Francisc&format=json&from=iOS&partner_id=100&page_no=1&version=5&column_id=5710000&timestamp=1493189081378&come_from=2";
+    const productUrl = app.globalData.urlBase + "?app_key=yooyo_weekend&method=emall.product.list&app_id=2&come_from=2&format=json&from=iOS&partner_id=100&tags=%E4%BC%98%E9%80%89%E8%A1%8C%E7%A8%8B&timestamp=1520308170311&version=5&yooyo_sessid=f99ba916-0b46-4ab6-a593-a0bea6a195e"
 
     //微信定位
 
@@ -40,6 +42,8 @@ this.test();
     this.getAdverData(adverUrl);
     //获取当季
     this.getMainSeasonData(mainSeasonUrl);
+
+    this.getPrductList(productUrl);
 
     //调用应用实例的方法获取全局数据
     app.getUserInfo(function(userInfo){
@@ -55,11 +59,8 @@ this.test();
       success: function (res) {
         var latitude = res.latitude
         var longitude = res.longitude
-        console.log(latitude)
-        console.log(longitude)
-        
-     
-        
+        // console.log(latitude)
+        // console.log(longitude)
       }
     })
  },
@@ -83,7 +84,7 @@ this.test();
       },
       fail: function(res) {
         // fail
-        console.log(res);
+        // console.log(res);
 
       },
       complete: function(res) {
@@ -105,12 +106,12 @@ this.test();
       }, // 设置请求的 header
       success: function(res){
         // success
-        console.log(res);
+        // console.log(res);
         that.processMainSeasonData(res);
       },
       fail: function(res) {
         // fail
-        console.log(res);
+        // console.log(res);
       },
       complete: function(res) {
         // complete
@@ -121,10 +122,43 @@ this.test();
 
 
   },
+  getPrductList(url){
+    wx.showNavigationBarLoading();
+    var that = this;
+    wx.request({
+      url: url,
+      data: {},
+      method: 'GET', 
+      header: {
+        'content-type': 'json'
+      }, 
+      success: function (res) {
+        // success
+        console.log("fangyukui");
+        that.setData({
+           products:res.data.data
+        })
+        console.log(that.data.products);
+        
+      },
+      fail: function (res) {
+        // fail
+        console.log(res);
+      },
+      complete: function (res) {
+        // complete
+        wx.hideNavigationBarLoading();
+
+      }
+      
+    })
+  },
+   
+
   processAdverData:function(resposeData){
     wx.hideNavigationBarLoading();
-    console.log("成功请求数据");
-    console.log(resposeData);
+    // console.log("成功请求数据");
+    // console.log(resposeData);
     var temps = [];
     var item_temp = {};
     for(var idx in resposeData.data.data.index_top_carousel){
@@ -168,7 +202,7 @@ this.test();
       seasonItems:temps
 
     });
-    console.log(this.data.seasonItems);
+    // console.log(this.data.seasonItems);
   
   },
 
@@ -176,7 +210,7 @@ this.test();
 
   // click
   tapSixItemClick:function(e){
-    console.log(e);
+    // console.log(e);
     var six_item  = this.data.sixItems[e.currentTarget.dataset.idx];
     wx.navigateTo({
       url: '../Seacher/Seacher',
@@ -215,7 +249,11 @@ this.test();
   test:function(){
     var data = {"package":"Sign= WXPay","appid":"wx51c0046e78e7d7fb","sign":"37285E73878DBBB9D09977597C67BE59","partnerid":"1237293602","prepayid":"wx201706011548337baaf4406c0641149943","noncestr":"5e7c7da6d3e60fe31bbfb567074e8e3e","timestamp":"1496303313"};
 
-    console.log(data["appid"]);
+    // console.log(data["appid"]);
+
+  },
+  toDatail:function(e){
+    console.log(e.currentTarget);
 
   }
 

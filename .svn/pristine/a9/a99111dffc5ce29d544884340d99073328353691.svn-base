@@ -1,0 +1,81 @@
+<view class="container">
+    <!--adver-->
+   <scroll-view scroll-y="true">
+        <view wx:if="{{advers.length>0 && seasonItems.length>0}}">
+
+      <view class="topAdver">
+           <swiper class="adver_swiper" indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+         <block wx:for="{{advers}}" wx:key="*this">
+              <swiper-item>
+                 <image wx:if="{{item.file_rsurl}}" class="adver_image" src="{{item.file_rsurl}}" mode="scaleToFill">
+                 </image>
+                 <image wx:else class="adver_image" src="{{localImagesUrl}}/none_sy@2x.png" mode="scaleToFill">
+                 </image>
+               </swiper-item>
+         </block>
+     </swiper>
+    </view>
+
+    
+
+    <!--sixTheme-->
+    
+    <view class="sixTheme">
+      <block wx:for="{{sixItems}}" wx:key="*this">
+        <view class='themeItem'  bindtap="tapSixItemClick" data-idx="{{index}}">
+           <image src="{{item.file_rsurl}}" mode="scaleToFill" ></image>
+           <view class="themeTitle">
+               <text style="font-size: 25rpx;">{{item.content}}</text>
+           </view>
+        </view>
+      </block>
+    </view>
+    
+
+
+   
+    
+
+    <view style="height:10px;background: lightgrey;"></view>
+    
+    <!--优选行程-->
+    <view class="seasonContainer">
+       <view class="seasonHeader">
+          <view style="width:4px;height:20px;background-color:limegreen;"></view>
+          <text style="font-size: 16px; color:gray;">优选行程</text>
+          <text style="font-size: 11px;color:lightGray;">精彩亮点在这里</text>
+       </view>
+
+
+       <block wx:for="{{products}}" wx:key="*this">
+          <view class="seasonItem">
+               <image src="https:{{item.banner_rsurl}}" class="seasonImage">
+               </image>
+               <text class='seasonTitle'>{{item.product_name}}</text>
+               <view class='itemBottomView'>
+                  <view>
+                     <text style="background-color:limegreen">{{item.merchant_city}}</text>
+                     <text style="color:gray;padding-left: 10px;">总路线:{{item.merchant_id}}公里</text>
+                  </view>
+                  <text class="price">{{item.sale_price}}</text>
+               </view>
+          </view>
+       </block>
+    </view>
+
+
+
+ </view>
+
+   <view wx:else></view>
+
+ </scroll-view>
+
+
+
+</view>
+
+
+
+

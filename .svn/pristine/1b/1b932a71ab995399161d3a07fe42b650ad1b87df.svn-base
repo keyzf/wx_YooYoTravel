@@ -1,0 +1,151 @@
+.container{
+    background: #fff;
+    padding: 0;
+    display: flex;
+    margin: 0;
+    /*font-size: 100px;*/
+}
+.topAdver{
+    /*background: blue;*/
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+    padding:0;
+}
+.adver_swiper{
+    width: 100%;
+    height: 450rpx;
+    margin: 0;
+    padding: 0;
+  
+
+}
+.adver_image{
+    width: 100%;  
+}
+.sixTheme{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
+     width: 100%;
+     flex-wrap: nowrap;
+     background: #fff;
+     padding-top: 15px;
+     padding-bottom: 15px;
+     margin:0
+     
+}
+.sixTheme image{
+    
+    width: 40px;
+    height: 40px;
+    align-self: center;
+}
+
+
+.themeItem{
+    display: flex;
+    margin: 0;
+    width: 20%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.bottomLine{
+    border-bottom:1rpx solid #ddd;
+}
+.leftLine{
+     border-right: 1rpx solid #ddd;
+
+}
+.themeTitle{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.seasonContainer{
+    
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+.seasonHeader{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-end;
+    height: 80rpx;
+    font-size: 33rpx;
+    padding-left: 20rpx;
+    color: lightgray;
+    text-align: center
+}
+
+.seasonHeader text{
+    margin-right: 15rpx;
+    margin-left: 15rpx;
+    
+}
+.seasonItem{
+    width: 100%;
+    padding: 20rpx;
+    box-sizing: border-box;
+}
+
+.seasonImage{
+    width: 100%;
+}
+
+.seasonTitle{
+    display: block;
+    line-height: 42rpx;
+    font-size: 30rpx;
+}
+.itemBottomView{
+  margin-top: 15rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 12px;
+}
+.price{
+  color: red;
+  font-size: 18px;
+}
+.price:after{
+    content: "元";
+    color: gray;
+    font-size: 12px;
+    
+}
+.price:before{
+    content: "¥";
+    color: gray;
+    font-size: 12px;
+}
+
+
+.dotLine{
+    width:200rpx;
+    height:2rpx;
+    background: white;
+    margin: 8px;
+    
+}
+
+.smartToursitContainer{
+    width: 100%;
+    /*height: auto;*/
+    
+
+}
+
+.smartToursitContainer image{
+    width: 100%;
+    height: 180px;
+   
+
+}

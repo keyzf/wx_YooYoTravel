@@ -17,51 +17,49 @@
      </swiper>
     </view>
 
-    <view style="height:10px;background: lightgrey;"></view>
+    
 
     <!--sixTheme-->
-    <navigator url="https://www.yooyo.com/">
-         <view class="sixTheme">
-     <block wx:for="{{sixItems}}" wx:key="*this">
-         <view class="themeItem {{index%2==0?  'leftLine':''}} {{ (index%4==0||index%4==1)? 'bottomLine':''}}" bindtap="tapSixItemClick" data-idx="{{index}}">
+    
+    <view class="sixTheme">
+      <block wx:for="{{sixItems}}" wx:key="*this">
+        <view class='themeItem'  bindtap="tapSixItemClick" data-idx="{{index}}">
            <image src="{{item.file_rsurl}}" mode="scaleToFill" ></image>
            <view class="themeTitle">
-            <text style="font-size: 35rpx;">{{item.content}}</text>
-            <text style="font-size: 25rpx; color: lightgray;">{{item.describe}}</text>
+               <text style="font-size: 25rpx;">{{item.content}}</text>
            </view>
         </view>
-
-
-     </block>
+      </block>
     </view>
-   </navigator>
+    
 
 
-   <!--smartToursit-->
-   <view class="smartToursitContainer" bindtap="toSmartTourist">
-      <image src="{{localImagesUrl}}/img_home_dz@2x.png"></image>
-   </view>
+   
     
 
     <view style="height:10px;background: lightgrey;"></view>
-    <!--season-->
+    
+    <!--优选行程-->
     <view class="seasonContainer">
        <view class="seasonHeader">
-          <image src="{{localImagesUrl}}/ico_ji@2x.png"></image>
-          <text>当季主题</text>
+          <view style="width:4px;height:20px;background-color:limegreen;"></view>
+          <text style="font-size: 16px; color:gray;">优选行程</text>
+          <text style="font-size: 11px;color:lightGray;">精彩亮点在这里</text>
        </view>
 
 
-       <block wx:for="{{seasonItems}}" wx:key="*this">
-          <view class="seasonItem">
-               <image src="{{item.pic_rsurl}}" class="seasonImage">
+       <block wx:for="{{products}}" wx:key="*this">
+          <view class="seasonItem" bindtap='toDatail' data-idx='{{index}}'>
+               <image src="https:{{item.banner_rsurl}}" class="seasonImage">
                </image>
-                <view class="seasonTitle">
-                     <text style="font-size: 38rpx; color: white;">{{item.title}}</text>
-                     <view class="dotLine"></view>
-                     <text style="font-size: 25rpx; color: white;">{{item.keywords}}</text>
-                 </view>
-                
+               <text class='seasonTitle'>{{item.product_name}}</text>
+               <view class='itemBottomView'>
+                  <view>
+                     <text style="background-color:limegreen">{{item.merchant_city}}</text>
+                     <text style="color:gray;padding-left: 10px;">总路线:{{item.merchant_id}}公里</text>
+                  </view>
+                  <text class="price">{{item.sale_price}}</text>
+               </view>
           </view>
        </block>
     </view>
