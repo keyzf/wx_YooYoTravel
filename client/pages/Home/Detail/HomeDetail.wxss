@@ -1,1 +1,34 @@
 /* pages/Home/Detail/HomeDetail.wxss */
+@import "../../../vendor/wxParse/wxParse.wxss";
+.container{
+  display: flex;
+  flex: 1;
+  background-color: rgb(237, 237, 237);
+  width: 100%;
+  height: 100%;
+}
+.headContainer{
+   width: 100%;
+   position: relative;
+   flex-direction: row;
+   
+}
+.bannerImg{
+  width: 100%;
+  height: 400rpx;
+}
+.bannerTitle{
+  position: absolute;
+  bottom: 10rpx;
+  left: 30rpx;
+  right: 30rpx;
+  font-size:28rpx;
+  color: white;
+  text-align: center;
+  
+}
+.warm_prompt{
+  padding: 32rpx;
+  background-color: white;
+  font-size: 26rpx;
+}

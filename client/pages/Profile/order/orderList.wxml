@@ -1,0 +1,47 @@
+<!--pages/Profile/order/orderList.wxml-->
+<scroll-view scroll-y="true" class="greybg">
+  <block wx:for="{{orderList}}" wx:key="*this">
+      <view class="order-item">
+        <view class="hd">
+              <text class="orderId">单号：{{item.order_no}}</text>
+          </view>
+          <navigator url="orderDetail">
+              <view class="bd">
+                  <view class="left">
+                      <image src="{{item.logo_rsurl}}" alt="" class="pic"></image>
+                  </view>
+                  <view class="middle">
+                      <view class="goodInfo">
+                          <view class="orderName">
+                              <text class="p1">{{item.order_name}}</text>
+                          </view>
+                          <view>
+                              <text class="p2">{{item.base_type_label}}</text>
+                          </view>
+                      </view>
+                  </view>
+                  <view class="right">
+                      <view>
+                          <text class="p3">{{item.pay_price}}元</text>
+                      </view>
+                      <view>
+                          <text class="p4">{{item.state_label}}</text>
+                      </view>
+                  </view>
+              </view>
+          </navigator>
+
+          <view class="spacing">
+            <view class="flex-wrp" style="flex-direction:row;">
+              <view>
+                <button class="btn">立即付款</button>
+              </view>
+              <view style="margin-left:20rpx;">
+                <button class="btn">立即付款</button>
+              </view>
+            </view>
+          </view>
+          
+      </view>
+      </block>
+</scroll-view>

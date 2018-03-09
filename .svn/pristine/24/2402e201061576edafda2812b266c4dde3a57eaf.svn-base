@@ -1,0 +1,127 @@
+/* pages/Profile/order/orderList.wxss */
+page {
+    height:100%;
+}
+
+.greybg {
+    background-color: #f4f4f4;
+    height: 100%
+}
+
+.order-item {
+    margin-top: 20rpx;
+    padding-left: 30rpx;
+    background-color: #fff;
+    font-size: 27rpx;
+}
+
+.order-item .hd {
+    font-size: 44rpx;
+    color: #666;
+    margin-right: 22rpx;
+}
+
+.order-item .hd .orderId {
+    flex: 1;
+    height: 1.0500025rpx;
+    line-height: 1.0500025rpx;
+    margin-right: 30rpx;
+    font-size: 27rpx;
+}
+
+.order-item .bd {
+    display: flex;
+    padding: 24rpx 0;
+    border-top: 1px solid #f3f3f3;
+    border-bottom: 1px solid #f3f3f3;
+    margin-top: 12rpx;
+}
+
+.order-item .bd .left {
+    position: relative;
+}
+
+.order-item .bd .left .pic {
+    display: block;
+    width: 120rpx;
+    height: 120rpx;
+    margin-right: 20rpx;
+    background-color: #f4f4f4;
+}
+
+.order-item .bd .middle {
+    margin-left: 20rpx;
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.order-item .bd .goodInfo {
+    line-height:45rpx;
+}
+
+ .order-item .bd .goodInfo .orderName {
+    width: 100%;
+ }
+
+.order-item .bd .p1 {
+    overflow:hidden;
+    text-overflow:ellipsis; 
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+}
+ 
+.order-item .bd .p2 {
+    color: #666;
+    font-size: 24rpx;
+}
+
+.order-item .bd .p3 {
+    color: #ff0000;
+    font-size: 24rpx;
+}
+
+.order-item .bd .p4 {
+    font-size: 24rpx;
+    color: #999999;
+}
+
+.order-item .bd .right {
+    margin-right: 30rpx;
+    margin-top: 30rpx;
+    min-width: 124rpx;
+    text-align: right;
+}
+
+.order-item .btns {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.order-item .btns .w-button {
+    height: 63rpx;
+    font-size: 27rpx;
+    line-height: 63rpx;
+    width: 160rpx;
+    border: 1px solid #d6d6d6;
+    border-radius: 4px;
+    margin-top: 0;
+    margin-right: 22rpx; 
+}
+
+.spacing {
+  margin-top: 20rpx;
+  padding-bottom: 20rpx;
+  margin-right: 20rpx;
+}
+
+.flex-wrp {
+  display:flex;
+  justify-content: flex-end;
+}
+
+.btn {
+  font-size: 22rpx;
+}

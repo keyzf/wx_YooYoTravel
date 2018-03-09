@@ -1,6 +1,20 @@
-<!-- wxml -->
-<!-- 指向微信公众平台首页的web-view -->
-<view>
-    <image></image>
+<import src="../../../template/common.wxml"/>
+<import  src="../../../vendor/wxParse/wxParse.wxml"/>
+<view class='container' wx:if='{{product}}'>
+  <view class='headContainer'>
+      <image class='bannerImg' src="https:{{product.banner_rsurl}}" mode="scaleToFill">
+    </image>
+    <text class='bannerTitle'>{{product.product_name}}</text>
+  </view>
+   
+  <template is="sectionHeader" data="{{data:'购买须知'}}"/>
+  <view class='warm_prompt'>
+    <template is="wxParse" data="{{wxParseData:buy_know.nodes}}"/>
+  </view>
+  <template is="sectionHeader" data="{{data:'温馨提醒'}}"/>
+  <view class='warm_prompt'>
+    <template is="wxParse" data="{{wxParseData:warm_prompt.nodes}}"/>
+  </view>
+
 
 </view>

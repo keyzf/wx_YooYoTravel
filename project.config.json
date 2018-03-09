@@ -8,5 +8,28 @@
 	},
 	"appid": "wxd75abc0d209e889e",
 	"projectname": "%E5%9B%BD%E6%B1%87%E4%BC%98%E6%B8%B8",
-	"condition": {}
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "详情",
+					"pathName": "pages/Home/Detail/HomeDetail",
+					"query": ""
+				}
+			]
+		}
+	}
 }

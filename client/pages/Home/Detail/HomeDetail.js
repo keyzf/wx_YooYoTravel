@@ -1,73 +1,51 @@
 // pages/Home/Detail/HomeDetail.js
+import Common from '../../../utils/common.js'
+var WxParse = require('../../../vendor/wxParse/wxParse.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    product:''
-  
+    product:'',
+    
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      product:options.data
+    let data = JSON.parse(options.data)
+    this.getDetail(data.id)
+   
+  },
+  getDetail (id){
+    let params = Common.sameParams
+    params["id"] = id
+    params["method"] = 'emall.product.get'
+    var that = this
+    wx.showLoading({
+      title: 'Loading',
     })
-    console.log(this.product.product_name);
+    wx.request({
+      url: Common.apiUrl,
+      data: params,
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success: function (res) {
+        wx.hideLoading()
+        that.setData({
+          product: res.data.data
+        })
+        console.log(that.data.product)
+        
+        WxParse.wxParse('buy_know', 'html', that.data.product.buy_know, that, 5);
+        WxParse.wxParse('warm_prompt', 'html', that.data.product.warm_prompt, that, 5);
 
-    
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+      }
+    })
   }
+
+  
 })

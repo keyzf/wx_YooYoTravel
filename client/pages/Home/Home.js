@@ -249,11 +249,25 @@ Page({
   test:function(){
     var data = {"package":"Sign= WXPay","appid":"wx51c0046e78e7d7fb","sign":"37285E73878DBBB9D09977597C67BE59","partnerid":"1237293602","prepayid":"wx201706011548337baaf4406c0641149943","noncestr":"5e7c7da6d3e60fe31bbfb567074e8e3e","timestamp":"1496303313"};
 
-    // console.log(data["appid"]);
 
   },
   toDatail:function(e){
-    console.log(e.currentTarget);
+    let idx = e.currentTarget.dataset.idx
+    let itemData = this.data.products[idx]
+    let data =  JSON.stringify(itemData)
+    // console.log(itemData)
+    wx.navigateTo({
+      url: './Detail/HomeDetail?data=' + data,
+      success: function (res) {
+        // success
+      },
+      fail: function (res) {
+        // fail
+      },
+      complete: function (res) {
+        // complete
+      }
+    })
 
   }
 

@@ -1,0 +1,7 @@
+<template name="sectionHeader">
+   <view class="sectionHeader">
+      <view style="width:4px;height:20px;background-color:limegreen;"></view>
+      <text style="font-size: 16px; color:gray;margin:0rpx 30rpx;">{{data}}</text>
+      <view style="height:2rpx;background-color:lightGray;position:absolute;bottom: 0rpx;left: 30rpx;right: 30rpx;"></view>
+   </view> 
+</template>
